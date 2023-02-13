@@ -2,14 +2,21 @@
 
 #include "TXLib.h"
 
-int main()
+void draw_fon()
 {
-    txCreateWindow (800, 600);
-
     txSetColor (TX_BLUE);
     txSetFillColor (TX_BLUE );
     txRectangle (0, 00, 800, 600);
+}
 
+void erikir(int x, int y)
+{
+    txSetColor ( TX_DARKGRAY);
+    txSetFillColor ( TX_DARKGRAY );
+    txCircle(x,y,50) ;
+}
+void draw_spaceship()
+{
     txSetColor (  TX_BLACK,3);
     txSetFillColor ( TX_white);
     txRectangle (360, 480, 430, 540);
@@ -42,6 +49,35 @@ int main()
 
     POINT triang[3] = {{360, 480}, {395,425 }, {430, 480},};
     txPolygon (triang, 3);
+}
+
+int main()
+{
+    txCreateWindow (800, 600);
+
+    int erikirx =-100;
+    int erikiry =100;
+
+    draw_fon ();
+
+    while(erikirx<400)
+    {
+    draw_fon ();
+    draw_spaceship();
+    erikir(erikirx,erikiry);
+    erikirx=erikirx+10;
+    txSleep(35);
+    }
+
+    while(erikiry<800)
+    {
+    draw_fon ();
+    draw_spaceship();
+    erikir(erikirx,erikiry);
+    erikirx=erikirx+10;
+    erikiry=erikiry+10;
+    txSleep(35);
+    }
 
     txTextCursor (false);
     return 0;
