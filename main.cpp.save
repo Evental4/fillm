@@ -9,12 +9,25 @@ void draw_fon()
     txRectangle (0, 00, 800, 600);
 }
 
-void erikir(int x)
+void erikir(int x, int y)
 {
     txSetColor ( TX_DARKGRAY);
     txSetFillColor ( TX_DARKGRAY );
-    txCircle(x,100,50) ;
+    txCircle(x,y,50) ;
 }
+
+ void draw_as1(int x, int y )
+ {
+   //x=210
+   //y=100 
+    txSetColor ( TX_RED);
+    txSetFillColor (TX_RED);
+    POINT tr[3] = {{x+210-210, 100}, {x+240-210, 40}, {x+270-210, 100}};
+    txPolygon (tr, 3);
+    txRectangle (x, y, x+270-210, 180);
+
+
+ }
 void draw_spaceship()
 {
     txSetColor (  TX_BLACK,3);
@@ -56,16 +69,33 @@ int main()
     txCreateWindow (800, 600);
 
     int erikirx =-100;
+    int erikiry =100;
 
-    draw_fon
-    
-    while(erikirx<800)
+    int x_as1 = 210;
+
+    draw_fon ();
+
+    while(erikirx<400)
     {
-    erikir(erikirx);
-    erikirx=verikirx+10
-    }
-    
+    draw_fon ();
     draw_spaceship();
+    draw_as1(x_as1);
+    erikir(erikirx,erikiry);
+    erikirx=erikirx+10;
+    txSleep(35);
+    }
+
+    while(erikiry<800)
+    {
+    draw_fon ();
+    draw_spaceship();
+    draw_as1(x_as1);
+    x_as1=x_as1 -10;
+    erikir(erikirx,erikiry);
+    erikirx=erikirx+10;
+    erikiry=erikiry+10;
+    txSleep(35);
+    }
 
     txTextCursor (false);
     return 0;

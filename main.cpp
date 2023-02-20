@@ -15,6 +15,19 @@ void erikir(int x, int y)
     txSetFillColor ( TX_DARKGRAY );
     txCircle(x,y,50) ;
 }
+
+ void draw_as1(int x, int y )
+ {
+   //x=210
+   //y=100
+    txSetColor ( TX_RED);
+    txSetFillColor (TX_RED);
+    POINT tr[3] = {{x+210-210, y+100-100}, {x+240-210, y+40-100}, {x+270-210, y+100-100}};
+    txPolygon (tr, 3);
+    txRectangle (x, y, x+270-210, y+180-100);
+
+
+ }
 void draw_spaceship()
 {
     txSetColor (  TX_BLACK,3);
@@ -58,12 +71,17 @@ int main()
     int erikirx =-100;
     int erikiry =100;
 
+    int x_as1 = 210;
+    int y_as1 = -100;
+
     draw_fon ();
 
-    while(erikirx<400)
+    while(y_as1<erikiry)
     {
     draw_fon ();
     draw_spaceship();
+    draw_as1(x_as1,y_as1 );
+    y_as1=y_as1+10;
     erikir(erikirx,erikiry);
     erikirx=erikirx+10;
     txSleep(35);
@@ -73,6 +91,8 @@ int main()
     {
     draw_fon ();
     draw_spaceship();
+    draw_as1(x_as1,y_as1 );
+    y_as1=y_as1 +10;
     erikir(erikirx,erikiry);
     erikirx=erikirx+10;
     erikiry=erikiry+10;
