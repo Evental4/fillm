@@ -51,40 +51,41 @@ void draw_spaceship(int x ,int y)
     txPolygon (triang, 3);
 }
 
-void draw_spaceship2()
+void draw_spaceship2(int x,int y)
 {
 
     txSetColor (  TX_BLACK,3);
     txSetFillColor (TX_LIGHTCYAN  );
-    txEllipse (360, 100, 430, 150);
-
+    txEllipse (x-35, y+20, x+35, y+70);
+    //x= 395
+    //y= 80
     txSetColor (  TX_BLACK,3);
     txSetFillColor ( TX_RED);
-    txRectangle (360, 30, 430, 130);
+    txRectangle (x-35, y-50, x+35, y+50);
 
     txSetColor (  TX_BLACK);
     txSetFillColor ( TX_GRAY);
-    POINT trapecia[4] = {{360, 30}, {385, 5}, {405, 5}, {430, 30}};
+    POINT trapecia[4] = {{x-35, y-50}, {x-10, y-75}, {x+10, y-75}, {x+35, y-50}};
     txPolygon (trapecia, 4);
 
     txSetColor (  TX_BLACK,3);
     txSetFillColor ( TX_CYAN);
 
-    POINT triangle[3] = {{430, 30}, {600, 130}, {430, 70},};
+    POINT triangle[3] = {{x+35, y-50}, {x+205, y+50}, {x+35, y-10},};
     txPolygon (triangle, 3);
 
-    POINT triangl[3] = {{360, 30}, {190, 130}, {360, 70},};
+    POINT triangl[3] = {{x-35, y-50}, {x-205, y+50}, {x-35, y-10},};
     txPolygon (triangl, 3);
 
     txSetColor (  TX_BLACK);
     txSetFillColor ( TX_BLACK );
-    POINT trapeci[5] = {{385, 30}, {360, 90}, {395, 130}, {430, 90},{405 ,30 }};
+    POINT trapeci[5] = {{x-10, y-50}, {x-35, y+10}, {x, y+50}, {x+35, 90},{x+10 ,y-50 }};
     txPolygon (trapeci, 5);
 
-    POINT triangle2[3] = {{430, 130}, {500, 95}, {430, 70},};
+    POINT triangle2[3] = {{x+35, y+50}, {x+105, y+15}, {x+35, y-10},};
     txPolygon (triangle2, 3);
 
-    POINT triangle3[3] = {{360, 130}, {290, 95}, {360, 70},};
+    POINT triangle3[3] = {{x-35, y+50}, {x-105, y+15}, {x-35, y-10},};
     txPolygon (triangle3, 3);
 
 }
@@ -97,13 +98,16 @@ int main()
 
     int x_spaceship =360;
     int y_spaceship =480;
+
+    int x_spaceship2 =395;
+    int y_spaceship2 =80;
     draw_fon ();
 
     while(erikirx<400)
     {
     draw_fon ();
     draw_spaceship(x_spaceship,y_spaceship);
-    draw_spaceship2();
+    draw_spaceship2(x_spaceship2,y_spaceship2);
     erikir(erikirx,erikiry);
     erikirx=erikirx+10;
     txSleep(35);
@@ -113,7 +117,7 @@ int main()
     {
     draw_fon ();
     draw_spaceship(x_spaceship,y_spaceship);
-    draw_spaceship2();
+    draw_spaceship2(x_spaceship2,y_spaceship2);
     erikir(erikirx,erikiry);
     erikirx=erikirx+10;
     erikiry=erikiry+10;
@@ -123,15 +127,23 @@ int main()
     while(x_spaceship<600)
     {
     draw_fon ();
-    draw_spaceship2();
+    draw_spaceship2(x_spaceship2,y_spaceship2);
     draw_spaceship(x_spaceship,y_spaceship);
     x_spaceship=x_spaceship+10;
     txSleep(35);
     }
-    while(x_spaceship<)
+
+    while(x_spaceship>100)
+    {
+    draw_fon ();
+    draw_spaceship2(x_spaceship2,y_spaceship2);
+    draw_spaceship(x_spaceship,y_spaceship);
+    x_spaceship=x_spaceship-10;
+    txSleep(35);
+    }
     
     
-    
+
     txTextCursor (false);
     return 0;
 }
