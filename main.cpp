@@ -141,7 +141,7 @@ int main()
     x_spaceship=x_spaceship-10;
     txSleep(25);
     }
-    while(x_spaceship2>200)
+    while(x_spaceship2>180)
     {
     draw_fon ();
     draw_spaceship(x_spaceship,y_spaceship);
@@ -149,6 +149,18 @@ int main()
     x_spaceship2=x_spaceship2-10;
     txSleep(35);
     }
+    while(x_spaceship2<360,x_spaceship<360)
+    {
+    draw_fon ();
+    draw_spaceship2(x_spaceship2,y_spaceship2);
+    draw_spaceship(x_spaceship,y_spaceship);
+    x_spaceship2=x_spaceship2+10;
+    x_spaceship=x_spaceship+10;
+    txSleep(35);
+    }
+
+
+
     txTextCursor (false);
     return 0;
 }

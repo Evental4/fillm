@@ -130,7 +130,7 @@ int main()
     draw_spaceship2(x_spaceship2,y_spaceship2);
     draw_spaceship(x_spaceship,y_spaceship);
     x_spaceship=x_spaceship+10;
-    txSleep(35);
+    txSleep(25);
     }
 
     while(x_spaceship>100)
@@ -139,11 +139,28 @@ int main()
     draw_spaceship2(x_spaceship2,y_spaceship2);
     draw_spaceship(x_spaceship,y_spaceship);
     x_spaceship=x_spaceship-10;
+    txSleep(25);
+    }
+    while(x_spaceship2>200)
+    {
+    draw_fon ();
+    draw_spaceship(x_spaceship,y_spaceship);
+    draw_spaceship2(x_spaceship2,y_spaceship2);
+    x_spaceship2=x_spaceship2-10;
+    txSleep(35);
+    }
+    while(x_spaceship2<395,x_spaceship<360)
+    {
+    draw_fon ();
+    draw_spaceship2(x_spaceship2,y_spaceship2);
+    draw_spaceship(x_spaceship,y_spaceship);
+    x_spaceship2=x_spaceship2+10;
+    x_spaceship=x_spaceship+10;
     txSleep(35);
     }
     
     
-
+    
     txTextCursor (false);
     return 0;
 }
