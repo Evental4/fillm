@@ -89,6 +89,19 @@ void draw_spaceship2(int x,int y)
     txPolygon (triangle3, 3);
 
 }
+void draw_bomb()
+    {
+    txSetColor (  TX_BLACK,3);
+    txSetFillColor (  TX_RED );
+    txRectangle (700,260 ,720 ,300 );
+    txSetColor (  TX_BLACK,3);
+    txSetFillColor (  TX_white );
+    POINT triangle4[3] = {{700,260 }, {710,230}, {720,260 },};
+    txPolygon (triangle4, 3);
+    txSetFillColor (  TX_BLACK );
+    POINT trapeciae[5] = {{700, 300}, {680,320}, {710, 310}, {740,320 },{720 ,300 }};
+    txPolygon (trapeciae, 5);
+    }
 int main()
 {
     txCreateWindow (800, 600);
@@ -156,11 +169,9 @@ int main()
     draw_spaceship(x_spaceship,y_spaceship);
     x_spaceship2=x_spaceship2+10;
     x_spaceship=x_spaceship+10;
+    draw_bomb();
     txSleep(35);
     }
-
-
-
     txTextCursor (false);
     return 0;
 }
