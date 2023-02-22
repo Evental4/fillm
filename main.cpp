@@ -89,17 +89,19 @@ void draw_spaceship2(int x,int y)
     txPolygon (triangle3, 3);
 
 }
-void draw_bomb()
+void draw_bomb(int x,int  y)
     {
+    //x=700
+    //y=260
     txSetColor (  TX_BLACK,3);
     txSetFillColor (  TX_RED );
-    txRectangle (700,260 ,720 ,300 );
+    txRectangle (x,y ,x+20 ,y-40 );
     txSetColor (  TX_BLACK,3);
     txSetFillColor (  TX_white );
-    POINT triangle4[3] = {{700,260 }, {710,230}, {720,260 },};
+    POINT triangle4[3] = {{x,y}, {x+10,y+40}, {x+20,y },};
     txPolygon (triangle4, 3);
     txSetFillColor (  TX_BLACK );
-    POINT trapeciae[5] = {{700, 300}, {680,320}, {710, 310}, {740,320 },{720 ,300 }};
+    POINT trapeciae[5] = {{x, y-40}, {x-20,y-60}, {x+10,y-50}, {x+40,y-60 },{x+20 ,y-40 }};
     txPolygon (trapeciae, 5);
     }
 int main()
@@ -114,6 +116,9 @@ int main()
 
     int x_spaceship2 =395;
     int y_spaceship2 =80;
+
+    int x_bomb=395 ;
+    int y_bomb=80 ;
     draw_fon ();
 
     while(erikirx<400)
@@ -169,8 +174,16 @@ int main()
     draw_spaceship(x_spaceship,y_spaceship);
     x_spaceship2=x_spaceship2+10;
     x_spaceship=x_spaceship+10;
-    draw_bomb();
     txSleep(35);
+    }
+    while(y_bomb<500)
+    {
+    draw_fon ();
+    draw_spaceship2(x_spaceship2,y_spaceship2);
+    draw_spaceship(x_spaceship,y_spaceship);
+    draw_bomb(x_bomb,y_bomb) ;
+    y_bomb=y_bomb+10;
+     txSleep(35);
     }
     txTextCursor (false);
     return 0;
