@@ -112,10 +112,10 @@ int main()
     int erikiry =100;
 
     int x_spaceship =360;
-    int y_spaceship =480;
+    int y_spaceship =800;
 
     int x_spaceship2 =395;
-    int y_spaceship2 =80;
+    int y_spaceship2 =-80;
 
     int x_bomb=395 ;
     int y_bomb=80 ;
@@ -124,8 +124,6 @@ int main()
     while(erikirx<400)
     {
     draw_fon ();
-    draw_spaceship(x_spaceship,y_spaceship);
-    draw_spaceship2(x_spaceship2,y_spaceship2);
     erikir(erikirx,erikiry);
     erikirx=erikirx+10;
     txSleep(35);
@@ -134,14 +132,26 @@ int main()
     while(erikiry<800)
     {
     draw_fon ();
-    draw_spaceship(x_spaceship,y_spaceship);
-    draw_spaceship2(x_spaceship2,y_spaceship2);
     erikir(erikirx,erikiry);
     erikirx=erikirx+10;
     erikiry=erikiry+10;
     txSleep(35);
     }
-
+    while(y_spaceship>480)
+    {
+    draw_fon ();
+    draw_spaceship(x_spaceship,y_spaceship);
+    y_spaceship=y_spaceship-10 ;
+    txSleep(25);
+    }
+    while(y_spaceship2<80)
+    {
+    draw_fon ();
+    draw_spaceship(x_spaceship,y_spaceship);
+    draw_spaceship2(x_spaceship2,y_spaceship2);
+    y_spaceship2=y_spaceship2+10;
+    txSleep(10);
+    }
     while(x_spaceship<600)
     {
     draw_fon ();
@@ -176,15 +186,22 @@ int main()
     x_spaceship=x_spaceship+10;
     txSleep(35);
     }
-    while(y_bomb<500)
+    while(y_bomb<430)
     {
     draw_fon ();
     draw_spaceship2(x_spaceship2,y_spaceship2);
     draw_spaceship(x_spaceship,y_spaceship);
     draw_bomb(x_bomb,y_bomb) ;
     y_bomb=y_bomb+10;
-     txSleep(35);
+     txSleep(15);
     }
+    txSetColor (TX_BLACK);
+    txSetFillColor (TX_BLACK );
+    txRectangle (0, 00, 800, 600);
+    txSetColor (  TX_white);
+    txTextOut (350, 300, "To Be Continued...");
+
+
     txTextCursor (false);
     return 0;
 }

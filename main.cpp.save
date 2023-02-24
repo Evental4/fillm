@@ -101,7 +101,7 @@ void draw_bomb(int x,int  y)
     POINT triangle4[3] = {{x,y}, {x+10,y+40}, {x+20,y },};
     txPolygon (triangle4, 3);
     txSetFillColor (  TX_BLACK );
-    POINT trapeciae[5] = {{x, y-40}, {x-20,y+60}, {x+10,y+50}, {x+40,y+60 },{x+20 ,y+40 }};
+    POINT trapeciae[5] = {{x, y-40}, {x-20,y-60}, {x+10,y-50}, {x+40,y-60 },{x+20 ,y-40 }};
     txPolygon (trapeciae, 5);
     }
 int main()
@@ -141,7 +141,11 @@ int main()
     erikiry=erikiry+10;
     txSleep(35);
     }
-
+    while(y_spaceship<480)
+    {
+    
+    
+    }
     while(x_spaceship<600)
     {
     draw_fon ();
@@ -176,15 +180,22 @@ int main()
     x_spaceship=x_spaceship+10;
     txSleep(35);
     }
-    while(y_bomb<400)
+    while(y_bomb<430)
     {
     draw_fon ();
     draw_spaceship2(x_spaceship2,y_spaceship2);
     draw_spaceship(x_spaceship,y_spaceship);
     draw_bomb(x_bomb,y_bomb) ;
     y_bomb=y_bomb+10;
-     txSleep(35);
+     txSleep(15);
     }
+    txSetColor (TX_BLACK);
+    txSetFillColor (TX_BLACK );
+    txRectangle (0, 00, 800, 600);
+    txSetColor (  TX_white);
+    txTextOut (350, 300, "To Be Continued...");
+
+
     txTextCursor (false);
     return 0;
 }
