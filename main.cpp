@@ -104,6 +104,14 @@ void draw_bomb(int x,int  y)
     POINT trapeciae[5] = {{x, y-40}, {x-20,y-60}, {x+10,y-50}, {x+40,y-60 },{x+20 ,y-40 }};
     txPolygon (trapeciae, 5);
     }
+ void tabl_diolog()
+ {
+    txSetColor (TX_BLACK,5);
+    txSetFillColor (TX_GREEN);
+    txRectangle (0, 450, 800, 600);
+    txSetFillColor (TX_BLUE);
+    txRectangle (15, 465, 145, 585);
+ }
 int main()
 {
     txCreateWindow (800, 600);
@@ -152,7 +160,16 @@ int main()
     y_spaceship2=y_spaceship2+10;
     txSleep(10);
     }
-    while(x_spaceship<600)
+    // 1 јкт
+    // диолог:здраствуйте"хз кто" к вам на тереторию прилетел дилигаци€ из 'SERTY'
+    // "проезвоедит запрос на сопроваждаюших лиц"
+    // а...
+    // это точно корабыл "хз кто".
+    // gfhfhfggdhdfhdhhfghdfjfj
+    // „то?
+    // hghfjjuduijdjgvhhrhfhgjf
+    // команд думаю это корабыль'MALIS'
+    // нам нужно как быстрей скрытс€.
     {
     draw_fon ();
     draw_spaceship2(x_spaceship2,y_spaceship2);
@@ -186,14 +203,20 @@ int main()
     x_spaceship=x_spaceship+10;
     txSleep(35);
     }
+    // 2 јкт
+    // что такое как мы не пытались они нас посто€но на гон€ют.
+    //аghghfghfghf
+    // 3 сукундна€ пауза
+    //....”ћћћћћћ–––––»»»““““≈≈≈≈.......
     while(y_bomb<430)
     {
     draw_fon ();
     draw_spaceship2(x_spaceship2,y_spaceship2);
     draw_spaceship(x_spaceship,y_spaceship);
+    tabl_diolog();
     draw_bomb(x_bomb,y_bomb) ;
     y_bomb=y_bomb+10;
-     txSleep(15);
+    txSleep(5);
     }
     txSetColor (TX_BLACK);
     txSetFillColor (TX_BLACK );
