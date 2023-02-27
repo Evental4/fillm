@@ -104,13 +104,28 @@ void draw_bomb(int x,int  y)
     POINT trapeciae[5] = {{x, y-40}, {x-20,y-60}, {x+10,y-50}, {x+40,y-60 },{x+20 ,y-40 }};
     txPolygon (trapeciae, 5);
     }
- void tabl_diolog();
+ void tabl_diolog()
+ {
     txSetColor (TX_BLACK,5);
     txSetFillColor (TX_GREEN);
     txRectangle (0, 450, 800, 600);
     txSetFillColor (TX_BLUE);
     txRectangle (15, 465, 145, 585);
-   
+ }
+ /*void Text(int x ,int y)
+  {
+
+  txSetColor (  TX_white);
+  txSelectFont ("Arial", 40);
+  txDrawText   (x, y, x+800, y+200,"GG vell play ");
+  }*/
+ void Text_diolog(int x ,int y ,const char* text)
+  {
+
+  txSetColor (  TX_white);
+  txSelectFont ("Arial", 40);
+  txTextOut   (x, y,  text );
+  }
 int main()
 {
     txCreateWindow (800, 600);
@@ -126,8 +141,20 @@ int main()
 
     int x_bomb=395 ;
     int y_bomb=80 ;
-    draw_fon ();
 
+    int xText= 100;
+    int yText= 550;
+
+    while (yText >-100)
+     {
+      draw_fon ();
+      txBegin();
+     Text_diolog(xText ,yText,"Hi pedro" );
+      yText-=5;//в диологе убрать
+
+      txEnd();
+      txSleep(1000);
+      }
     while(erikirx<400)
     {
     draw_fon ();
@@ -169,13 +196,6 @@ int main()
     // hghfjjuduijdjgvhhrhfhgjf
     // команд думаю это корабыль'MALIS'
     // нам нужно как быстрей скрытся.
-
-    txSetColor (TX_BLACK,5);
-    txSetFillColor (TX_GREEN);
-    txRectangle (0, 450, 800, 600);
-    txSetFillColor (TX_BLUE);
-    txRectangle (15, 465, 145, 585);
-    txSetColor (  TX_white);
     {
     draw_fon ();
     draw_spaceship2(x_spaceship2,y_spaceship2);
@@ -219,6 +239,7 @@ int main()
     draw_fon ();
     draw_spaceship2(x_spaceship2,y_spaceship2);
     draw_spaceship(x_spaceship,y_spaceship);
+    tabl_diolog();
     draw_bomb(x_bomb,y_bomb) ;
     y_bomb=y_bomb+10;
     txSleep(5);

@@ -112,6 +112,20 @@ void draw_bomb(int x,int  y)
     txSetFillColor (TX_BLUE);
     txRectangle (15, 465, 145, 585);
  }
+ /*void Text(int x ,int y)
+  {
+
+  txSetColor (  TX_white);
+  txSelectFont ("Arial", 40);
+  txDrawText   (x, y, x+800, y+200,"GG vell play ");
+  }*/
+ void Text_diolog(int x ,int y ,const char* text)
+  {
+
+  txSetColor (  TX_white);
+  txSelectFont ("Arial", 40);
+  txTextOut   (x, y,  text );
+  }
 int main()
 {
     txCreateWindow (800, 600);
@@ -127,8 +141,20 @@ int main()
 
     int x_bomb=395 ;
     int y_bomb=80 ;
-    draw_fon ();
 
+    int xText= 100;
+    int yText= 550;
+
+    while (yText >-100)
+     {
+      draw_fon ();
+      txBegin();
+     Text_diolog(xText ,yText,"Hi pedro" );
+      yText-=5;//в диологе убрать
+
+      txEnd();
+      txSleep(1000);
+      }
     while(erikirx<400)
     {
     draw_fon ();
