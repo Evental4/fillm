@@ -104,27 +104,30 @@ void draw_bomb(int x,int  y)
     POINT trapeciae[5] = {{x, y-40}, {x-20,y-60}, {x+10,y-50}, {x+40,y-60 },{x+20 ,y-40 }};
     txPolygon (trapeciae, 5);
     }
- void tabl_diolog()
- {
+ void Text(int x ,int y)
+  {
+
+  txSetColor (  TX_white);
+  txSelectFont ("Arial", 40);
+  txDrawText   (x, y, x+800, y+600," ¬џ∆»¬Ў»…,\n"
+                                   "45  орабл€,\n\n"
+
+
+
+                                      "јвтор,\n\n\n"
+                                    "Eve_максим"
+                                                );
+  }
+ void Text_diolog(int x ,int y ,const char* text, COLORREF color)
+  {
     txSetColor (TX_BLACK,5);
     txSetFillColor (TX_GREEN);
     txRectangle (0, 450, 800, 600);
-    txSetFillColor (TX_BLUE);
+    txSetFillColor (color);
     txRectangle (15, 465, 145, 585);
- }
- /*void Text(int x ,int y)
-  {
-
-  txSetColor (  TX_white);
-  txSelectFont ("Arial", 40);
-  txDrawText   (x, y, x+800, y+200,"GG vell play ");
-  }*/
- void Text_diolog(int x ,int y ,const char* text)
-  {
-
-  txSetColor (  TX_white);
-  txSelectFont ("Arial", 40);
-  txTextOut   (x, y,  text );
+    txSetColor (  TX_white);
+    txSelectFont ("Arial", 40);
+    txTextOut   (x, y,  text );
   }
 int main()
 {
@@ -142,18 +145,21 @@ int main()
     int x_bomb=395 ;
     int y_bomb=80 ;
 
-    int xText= 100;
-    int yText= 550;
+    int xText= 15;
+    int yText= 700;
+
+    int  xText_diolog=150;
+    int  yText_diolog=470;
 
     while (yText >-100)
      {
       draw_fon ();
       txBegin();
-     Text_diolog(xText ,yText,"Hi pedro" );
+      Text(xText ,yText );
       yText-=5;//в диологе убрать
 
       txEnd();
-      txSleep(1000);
+      txSleep(50);
       }
     while(erikirx<400)
     {
@@ -186,16 +192,25 @@ int main()
     y_spaceship2=y_spaceship2+10;
     txSleep(10);
     }
-    // 1 јкт
-    // диолог:здраствуйте"хз кто" к вам на тереторию прилетел дилигаци€ из 'SERTY'
-    // "проезвоедит запрос на сопроваждаюших лиц"
-    // а...
-    // это точно корабыл "хз кто".
-    // gfhfhfggdhdfhdhhfghdfjfj
-    // „то?
-    // hghfjjuduijdjgvhhrhfhgjf
-    // команд думаю это корабыль'MALIS'
-    // нам нужно как быстрей скрытс€.
+    Text_diolog( xText_diolog,yText_diolog ,"здраствуйте Dikrightк вам на тереторию прилетел дилигаци€ из 'SERTY'проезвоедит запрос на сопроваждаюших лиц. ", TX_BLUE);
+    txSleep(2000);
+    txEnd();
+    Text_diolog( xText_diolog,yText_diolog ,"a...", TX_BLUE);
+    txSleep(500);
+    txEnd();
+    Text_diolog( xText_diolog,yText_diolog , "это точно корабыл Dikrightк", TX_BLUE);
+    txSleep(500);
+    txEnd();
+    Text_diolog( xText_diolog,yText_diolog ,"gfhfhfggdhdfhdhhfghdfjfj", TX_RED);
+    txSleep(500);
+    Text_diolog( xText_diolog,yText_diolog ,"„то?", TX_BLUE);
+    txSleep(500);
+    Text_diolog( xText_diolog,yText_diolog ,"hghfjjuduijdjgvhhrhfhgjf", TX_RED);
+    txSleep(500);
+    Text_diolog( xText_diolog,yText_diolog ,"команд думаю это корабыль'MALIS'", TX_BLUE);
+    txSleep(500);
+    Text_diolog( xText_diolog,yText_diolog ,"нам нужно как быстрей скрытс€.", TX_BLUE);
+    txSleep(500);
     {
     draw_fon ();
     draw_spaceship2(x_spaceship2,y_spaceship2);
@@ -229,17 +244,16 @@ int main()
     x_spaceship=x_spaceship+10;
     txSleep(35);
     }
-    // 2 јкт
+    
     // что такое как мы не пытались они нас посто€но на гон€ют.
     //аghghfghfghf
-    // 3 сукундна€ пауза
+    
     //....”ћћћћћћ–––––»»»““““≈≈≈≈.......
     while(y_bomb<430)
     {
     draw_fon ();
     draw_spaceship2(x_spaceship2,y_spaceship2);
     draw_spaceship(x_spaceship,y_spaceship);
-    tabl_diolog();
     draw_bomb(x_bomb,y_bomb) ;
     y_bomb=y_bomb+10;
     txSleep(5);
